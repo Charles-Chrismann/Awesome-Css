@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+  /* outline: solid 1px red; */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f3f4fb;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+label {
+  background: #1b1d1f;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  border-radius: 1rem;
+}
+
+
+label .stars {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  transition: width 0.5s, opacity 0.5s 0s;
+  opacity: 1;
+}
+
+input[type="checkbox"]:checked + label .stars {
+  width: 0;
+  opacity: 0;
+  transition: width 0.5s, opacity 0s 1s;
+}
+
+label .text {
+  height: 48px;
+  width: 72px;
+  position: relative;
+  transition: 0.5s;
+}
+
+input[type="checkbox"]:checked + label .text {
+  width: 120px;
+}
+
+label .stars i {
+  font-size: 1.25rem;
+  color: #70737c;
+  transition: 0.5s;
+}
+
+label .stars span {
+  position: absolute;
+  height: 24px;
+  width: 73px;
+  transition: 0.5s;
+  left: 11px;
+  transform-origin: right;
+}
+
+label .stars span img{
+  height: 100%;
+  transform: scale(0.5);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+label:hover .stars i {
+  /* transform: scale(0); */
+  opacity: 0;
+  transition: 0.2s;
+}
+
+label:hover .stars span img {
+  transform: scale(1);
+  opacity: 1;
+  /* transition: transform 0.5s; */
+}
+
+input[type="checkbox"]:checked + label .stars span {
+  animation: animate 1s ease-in-out forwards;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+input[type="checkbox"]:checked + label .stars i {
+  display: none;
+}
+
+input[type="checkbox"]:checked + label .stars span img {
+  animation: animateStar 1s ease-in-out forwards;
+}
+
+@keyframes animateStar {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+
+label .text .star
+/* label .text .red */
+{
+  font-weight: 700;
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+label .text .star .red {
+  display: inline-block;
+  width: 0px;
+  overflow: hidden;
+}
+
+label .counter {
+  position: relative;
+  width: 48px;
+  padding: auto 0.5rem;
+  height: 100%;
+  border-left: 1px solid #2e3035;
+  display: grid;
+  place-items: center;
+}
+
+label .counter .inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  overflow: hidden;
+  height: 25.2px;
+}
+
+label .counter .inner span {
+  height: 24px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  transform: translateY(0);
+  transition: 0.5s;
+  text-align: center;
+  color: #2e3035;
+}
+
+label .counter .inner span:nth-child(2) {
+  color: #f4f5ad;
+}
+
+input[type="checkbox"]:checked + label .counter .inner span {
+  transform: translateY(-100%);
+  transition-delay: 0.5s;
+}
+
+label .counter .plus1 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked + label .counter .plus1 {
+  animation: plus1 0.3s 0.5s linear forwards;
+}
+
+@keyframes plus1 {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-32px);
+  }
+}
+
+label .counter span:nth-child(3) {
+  position: absolute;
+}

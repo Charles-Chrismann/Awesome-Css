@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #222;
+}
+
+.cube {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+}
+
+.cube div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotateX(-20deg) rotateY(360deg);
+  }
+  100% {
+    transform: rotateX(-20deg) rotateY(0deg);
+  }
+}
+
+.cube .big span {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: var(--clr);
+  transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+
+.cube:hover .big span {
+  background: transparent;
+  border: solid 10px #ffa20d;
+  filter: drop-shadow(0 0 20px #ffa20d);
+}
+
+.cube .big span.top {
+  transform: rotateX(90deg) translateZ(150px);
+}
+
+.cube .big span.top::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateZ(-350px);
+  background: rgba(0, 0, 0, 0.5);
+  filter: blur(50px);
+}
+
+.cube2 {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -400px);
+}
+
+.cube2 div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: animate2 6s linear infinite;
+  scale: 0.5;
+}
+
+@keyframes animate2 {
+  0% {
+    transform: rotateX(-20deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(-20deg) rotateY(360deg);
+  }
+}
+
+.cube2 .big span {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: var(--clr);
+  transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+
+.cube:hover ~ .cube2 .big span {
+  background: transparent;
+  border: solid 10px #fff;
+  filter: drop-shadow(0 0 20px #fff);
+}
+
+.cube2 .big span.top {
+  transform: rotateX(90deg) translateZ(150px);
+}
+
+.cube2 .big span.top::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateZ(-350px);
+  background: rgba(0, 0, 0, 0.35);
+  filter: blur(50px);
+}

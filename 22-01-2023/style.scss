@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  min-height: 100vh;
+  background: #161618;
+}
+
+.card {
+  height: 250px;
+  aspect-ratio: 1/1;
+  border: solid 2px #202022;
+  border-radius: 1rem;
+  background: #1a191c;
+
+  h4 {
+    color: #fff;
+  }
+}

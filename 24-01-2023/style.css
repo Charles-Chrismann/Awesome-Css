@@ -10,6 +10,40 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #000;
+  background: #F4F7FE;
 }
 
+p {
+  display: flex;
+}
+
+a {
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: black;
+}
+
+a span.thelink {
+  display: flex;
+}
+
+a span.thelink:nth-child(2) {
+  position: absolute;
+  inset: 0;
+  transform: translateY(100%);
+  background: red;
+}
+
+a span.thelink .letter {
+  transition: 0.2s calc(0.1s * var(--i)) linear;
+}
+
+a:hover span.thelink .letter {
+  transform: translateY(-100%);
+}
+
+.space {
+  user-select: none;
+  visibility: hidden;
+}
